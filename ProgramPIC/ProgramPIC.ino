@@ -2,12 +2,14 @@
    01.09.2022 johni5
    Добавил поддержку установки режима подачи питания MCLR_first или Vdd_first
    Генератор ШИМ повышающего DC-DC 12V для Vpp на 9 пин
-   Gjxbybk pапись в EEPROM (в beginProgramCycle разделил EEPROM и FLASH)
+   Починил запись в EEPROM (в beginProgramCycle разделил EEPROM и FLASH) на 12f629 не работало
    Поддержка pic16f873
     Замена длительных задержек delayMicroseconds(us) на delay(ms)
-    Двойной ERASE для чипов с двойным битом защиты (с первого раза не сбрасывался бит)
+    Двойной ERASE для чипов с двойным битом защиты (с первого раза не сбрасывался полностью)
 
+  Использовал доработки: https://github.com/makerprojects/ProgramPic/blob/master/ProgramPic/ProgramPic.ino
 
+----------------------------------------------------------------------------------------------
    01.02.2021 првка скетча от ТехнарьКто, для компиляции в новых Arduino IDE
    остальной скетч без изменений
    Copyright (C) 2012 Southern Storm Software, Pty Ltd.
@@ -38,9 +40,9 @@
 
 #define MCLR_RESET      LOW    // PIN_MCLR state to reset the PIC
 #define MCLR_VPP        HIGH     // PIN_MCLR state to apply 13v to MCLR/VPP pin
-#define VDD_ON      HIGH
-#define VDD_OFF     LOW
-#define PIN_PWM25K 9
+#define VDD_ON          HIGH
+#define VDD_OFF         LOW
+#define PIN_PWM25K      9
 
 // All delays are in microseconds.
 #define DELAY_SETTLE    50      // Delay for lines to settle for reset
